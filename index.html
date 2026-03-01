@@ -19,10 +19,10 @@
                 extend: {
                     colors: {
                         evago: {
-                            blue: '#084b96',   // Primary Brand Color
-                            cyan: '#1ca2ed',   // Accent/Action Color
-                            grey: '#737373',   // Body Text
-                            light: '#F5F7FA',  // Backgrounds
+                            blue: '#084b96',
+                            cyan: '#1ca2ed',
+                            grey: '#737373',
+                            light: '#F5F7FA',
                         }
                     },
                     fontFamily: {
@@ -31,16 +31,11 @@
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
-                        'flow': 'flow 2s linear infinite',
                     },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-20px)' },
-                        },
-                        flow: {
-                            '0%': { backgroundPosition: '0 0' },
-                            '100%': { backgroundPosition: '20px 20px' },
                         }
                     }
                 }
@@ -55,11 +50,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .flow-line {
-            background: linear-gradient(90deg, #e5e7eb 50%, #1ca2ed 50%);
-            background-size: 20px 20px;
-            animation: flow 1s linear infinite;
-        }
     </style>
 </head>
 <body class="font-sans text-evago-grey antialiased bg-slate-50">
@@ -68,7 +58,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <img class="h-9 w-auto" src="Evago symbol.png" alt="Evago Symbol" onerror="this.src='https://via.placeholder.com/50x50?text=E'">
+                    <img class="h-9 w-auto" src="Evago symbol.png" alt="Evago Symbol">
                     <span class="font-heading font-bold text-xl tracking-tight text-evago-blue uppercase">Evago</span>
                 </div>
 
@@ -85,11 +75,11 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 
                 <div class="z-10">
-                    <img src="Evago logo.png" alt="Evago Full Logo" class="h-80 w-auto mb-6 -ml-4" onerror="this.src='https://via.placeholder.com/600x200?text=EVAGO'">
+                    <img src="Evago logo.png" alt="Evago Full Logo" class="h-80 w-auto mb-2 -ml-4" onerror="this.src='https://via.placeholder.com/600x200?text=EVAGO'">
 
                     <div class="inline-flex items-center gap-2 mb-6">
-                        <span class="px-3 py-1 rounded-full bg-blue-50 text-evago-blue text-xs font-bold tracking-wide border border-blue-100 uppercase">
-                            🚀 Pilots Complete: Singapore & Vietnam
+                        <span class="px-3 py-1 rounded-full bg-blue-50 text-evago-blue text-xs font-bold tracking-wide border border-blue-100">
+                            🚀 PILOTS COMPLETE: SINGAPORE & VIETNAM
                         </span>
                     </div>
                     
@@ -100,7 +90,7 @@
                     
                     <p class="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
                         The world's first mobility network that turns road data into financial security. 
-                        <strong>Riders</strong> enjoy verified cross-border travel. 
+                        <strong>Riders</strong> enjoy verified travel. 
                         <strong>Drivers</strong> build a pension funded by smart infrastructure.
                     </p>
 
@@ -113,36 +103,21 @@
                         </a>
                     </div>
                     
-                    <p class="text-xs text-gray-400 italic">Currently in private beta. Public launch coming soon to Malaysia & Singapore.</p>
+                    <p class="text-xs text-gray-400 italic">Currently in private beta. Public launch coming soon.</p>
                 </div>
 
                 <div class="relative lg:h-[600px] flex items-center justify-center">
                     <div class="relative z-20 w-72 h-[550px] bg-gray-900 rounded-[3rem] border-8 border-gray-900 shadow-2xl animate-float">
                         <div class="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative">
                             <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/city-fields.png')] opacity-20 bg-blue-50"></div>
-                            
-                            <div class="absolute top-4 right-4 z-30">
-                                <span class="bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-tighter">Pilot Build</span>
-                            </div>
-
                             <div class="absolute top-0 w-full p-6 bg-gradient-to-b from-white to-transparent">
-                                <div class="flex justify-between items-end">
-                                    <div>
-                                        <p class="text-xs text-gray-400 font-bold uppercase">Projected Wallet</p>
-                                        <h3 class="text-3xl font-bold text-gray-900">$142.50</h3>
-                                    </div>
-                                </div>
+                                <p class="text-xs text-gray-400 font-bold uppercase">Projected Wallet</p>
+                                <h3 class="text-3xl font-bold text-gray-900">$142.50</h3>
                             </div>
-
                             <div class="absolute bottom-8 left-4 right-4">
                                 <div class="bg-white p-4 rounded-xl shadow-lg border-l-4 border-evago-cyan">
-                                    <div class="flex justify-between items-center mb-1">
-                                        <span class="text-xs text-gray-500 font-bold">SMART PENSION BOT</span>
-                                    </div>
-                                    <div class="flex justify-between items-center">
-                                        <span class="text-sm font-bold text-gray-900">+$12.40 Added</span>
-                                        <span class="text-[10px] text-gray-400 uppercase">Data Mining</span>
-                                    </div>
+                                    <span class="text-xs text-gray-500 font-bold uppercase block mb-1">Smart Pension Bot</span>
+                                    <span class="text-sm font-bold text-gray-900">+$12.40 Added</span>
                                 </div>
                             </div>
                         </div>
@@ -154,52 +129,107 @@
     </section>
 
     <section id="info" class="py-12 bg-white border-y border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-                <div class="md:w-1/2">
-                    <h3 class="font-heading text-xl font-bold text-gray-900">Mapped on The Grid 🌐</h3>
-                    <p class="text-sm text-gray-500 mt-2">
-                        Evago (formerly GoCabs) is officially verified and mapped by <strong>Superteam Vietnam</strong> as a leading Southeast Asian tech innovator.
-                    </p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="md:w-1/2 text-center md:text-left">
+                <h3 class="font-heading text-xl font-bold text-gray-900">Mapped on The Grid 🌐</h3>
+                <p class="text-sm text-gray-500 mt-2">Validated by Superteam Vietnam as a leading tech innovator.</p>
+            </div>
+            <div class="md:w-1/2 flex flex-wrap justify-center md:justify-end gap-10 opacity-60 grayscale hover:grayscale-0 transition-all">
+                <span class="font-black text-lg text-gray-800 uppercase">SuperteamVN</span>
+                <span class="font-black text-lg text-gray-800 uppercase">Solana</span>
+                <span class="font-black text-lg text-gray-800 uppercase">IoTeX</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-evago-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div id="riders" class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition border border-gray-100">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-3xl mb-6">👋</div>
+                    <h3 class="font-heading text-2xl font-bold text-gray-900 mb-4">For Riders</h3>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <span class="text-evago-cyan mr-2 font-bold">✓</span>
+                            <span class="text-gray-600"><strong>Verified Fleet:</strong> Safe, licensed travel across the Causeway.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-evago-cyan mr-2 font-bold">✓</span>
+                            <span class="text-gray-600"><strong>Seamless Booking:</strong> Door-to-door intercity service.</span>
+                        </li>
+                    </ul>
+                    <span class="text-xs text-gray-400 font-bold uppercase">Launch Coming Soon</span>
                 </div>
-                
-                <div class="md:w-1/2 flex flex-wrap justify-center md:justify-end gap-10 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                    <span class="font-black text-lg text-gray-800 uppercase tracking-tighter">SuperteamVN</span>
-                    <span class="font-black text-lg text-gray-800 uppercase tracking-widest">Solana</span>
-                    <span class="font-black text-lg text-gray-800 uppercase tracking-widest">IoTeX</span>
-                    <span class="font-black text-lg text-gray-800 uppercase tracking-widest">Backstage</span>
+
+                <div id="drivers" class="bg-gray-900 text-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition border border-gray-800 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-5">
+                        <img src="Evago symbol.png" class="w-40 h-40 rounded-full" alt="Bg">
+                    </div>
+                    <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-3xl mb-6 relative z-10">🚗</div>
+                    <h3 class="font-heading text-2xl font-bold text-white mb-4 relative z-10">For Drivers</h3>
+                    <ul class="space-y-4 mb-8 relative z-10">
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-2 font-bold">✓</span>
+                            <span class="text-gray-300"><strong>Wealth Generation:</strong> Automated pension from every mile.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-2 font-bold">✓</span>
+                            <span class="text-gray-300"><strong>Stable Earnings:</strong> Treasury-backed floor wage guarantee.</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-block bg-evago-cyan text-white font-bold py-3 px-6 rounded-lg hover:bg-sky-400 transition relative z-10">
+                        Join Driver Waitlist
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="drivers" class="py-24 bg-gray-900 text-white relative overflow-hidden">
-        <div class="absolute top-0 right-0 p-4 opacity-5">
-            <img src="Evago symbol.png" class="w-96 h-96 rounded-full" alt="Bg">
-        </div>
-        
+    <section id="impact" class="py-20 bg-evago-blue text-white overflow-hidden relative">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="max-w-3xl">
-                <h2 class="font-heading text-4xl font-bold mb-6">Don't Just Drive. <br><span class="text-evago-cyan">Build Your Retirement.</span></h2>
-                <p class="text-gray-400 text-lg mb-10 leading-relaxed">
-                    We are replacing the informal "shadow economy" of intercity travel with a fully licensed, wealth-generating network. Drivers earn from two sources: Ride Fares and Passive Road Mapping.
-                </p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                    <div class="flex items-start">
-                        <div class="bg-white/10 p-3 rounded-lg mr-4 text-green-400">✓</div>
-                        <div>
-                            <h4 class="font-bold mb-1">Automated Pension</h4>
-                            <p class="text-sm text-gray-400">Our Smart Engine routes a portion of every mile into a secure fund for your future.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="bg-white/10 p-3 rounded-lg mr-4 text-green-400">✓</div>
-                        <div>
-                            <h4 class="font-bold mb-1">Earnings Guarantee</h4>
-                            <p class="text-sm text-gray-400">A treasury-backed floor wage ensures you are protected even during slow periods.</p>
-                        </div>
-                    </div>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-heading text-3xl font-bold mb-4">Solving the Gig Economy Safety Net</h2>
+                <p class="text-blue-200">Our backend system automatically routes yields into verifiable financial security.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-8 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/10">
+                    <div class="text-4xl mb-4">🏦</div>
+                    <h3 class="font-bold text-xl mb-2">The Pension Fund</h3>
+                    <p class="text-sm text-blue-100">Revenue is automatically routed to a secure "Shadow Wallet" tied to the driver's ID.</p>
                 </div>
+                <div class="p-8 bg-white/10 rounded-2xl backdrop-blur-sm border border-evago-cyan shadow-glow">
+                    <div class="text-4xl mb-4">🛡️</div>
+                    <h3 class="font-bold text-xl mb-2">Treasury Backed</h3>
+                    <p class="text-sm text-blue-100">Designed to guarantee a <strong>$150/mo Floor Wage</strong> contribution for long-term health.</p>
+                </div>
+                <div class="p-8 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/10">
+                    <div class="text-4xl mb-4">🤝</div>
+                    <h3 class="font-bold text-xl mb-2">Pension-as-a-Service</h3>
+                    <p class="text-sm text-blue-100">A scalable model we extend to external fleets to formalize the industry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <a href="#" class="inline
+    <footer class="bg-slate-950 text-white py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-8 md:mb-0 text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-3 mb-4">
+                    <img src="Evago symbol.png" class="h-8 w-auto" alt="Evago Symbol">
+                    <span class="font-heading font-bold text-xl tracking-tight uppercase">Evago</span>
+                </div>
+                <p class="text-gray-400 text-sm">The Compliance-First Mobility Network.</p>
+            </div>
+            <div class="flex gap-10">
+                <a href="#drivers" class="text-sm hover:text-evago-cyan transition">Driver Waitlist</a>
+                <a href="mailto:invest@evago.io" class="text-sm hover:text-evago-cyan transition">Get More Info</a>
+            </div>
+        </div>
+        <div class="text-center mt-12 text-xs text-gray-600">
+            &copy; 2026 Evago Mobility. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
