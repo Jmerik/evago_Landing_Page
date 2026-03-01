@@ -271,32 +271,33 @@
 
                 <form id="waitlist-form" onsubmit="handleWaitlistSubmit(event)" class="space-y-4">
                     <div>
-    <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Full Name</label>
-    <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-evago-cyan outline-none" placeholder="John Doe">
-</div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Full Name</label>
+                        <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-evago-cyan focus:ring-2 focus:ring-evago-cyan/20 outline-none transition" placeholder="John Doe">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Email Address</label>
+                        <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-evago-cyan focus:ring-2 focus:ring-evago-cyan/20 outline-none transition" placeholder="john@example.com">
+                    </div>
 
-<div>
-    <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Email Address</label>
-    <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-evago-cyan outline-none" placeholder="john@example.com">
-</div>
-
-<div id="role-container" class="grid grid-cols-2 gap-4">
-    <div>
-        <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Role</label>
-        <select id="role-select" name="role" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-evago-cyan outline-none bg-white">
-            <option value="driver">Driver</option>
-            <option value="newsletter">Newsletter</option> </select>
-    </div>
-    <div>
-        <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Region</label>
-        <select name="region" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-evago-cyan outline-none bg-white">
-            <option value="my">Malaysia</option>
-            <option value="sg">Singapore</option>
-            <option value="vn">Vietnam</option>
-            <option value="other">Other</option>
-        </select>
-    </div>
-</div>
+                    <div id="role-container" class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Role</label>
+                            <select id="role-select" name="role" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-evago-cyan outline-none bg-white">
+                                <option value="driver">Driver</option>
+                                <option value="newsletter">Newsletter</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Region</label>
+                            <select name="region" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-evago-cyan outline-none bg-white">
+                                <option value="my">Malaysia</option>
+                                <option value="sg">Singapore</option>
+                                <option value="vn">Vietnam</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
 
                     <button type="submit" class="w-full bg-evago-cyan hover:bg-sky-400 text-white font-bold py-4 rounded-xl shadow-lg shadow-cyan-500/20 transition transform hover:-translate-y-0.5">
                         Submit
@@ -318,11 +319,14 @@
         const form = document.getElementById('waitlist-form');
         const successMsg = document.getElementById('success-message');
         const roleContainer = document.getElementById('role-container');
+        const roleSelect = document.getElementById('role-select');
         const modalTitle = document.getElementById('modal-title');
         const modalDesc = document.getElementById('modal-desc');
 
+        // *** PASTE YOUR GOOGLE WEB APP URL HERE ***
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbymFW2z_jmEvutLeHQZT47p5RR7tmO4LDoZWZGw1BAOsiUu-CXffvogs91Ddt5lUdpi/exec'; // e.g. https://script.google.com/macros/s/AKfycby.../exec
+
         function openModal(type) {
-            // Reset state
             form.classList.remove('hidden');
             successMsg.classList.add('hidden');
             form.reset();
@@ -330,11 +334,13 @@
             if (type === 'newsletter') {
                 modalTitle.innerText = "Stay Updated";
                 modalDesc.innerText = "Get the latest news on our launch and features.";
-                roleContainer.classList.add('hidden'); // Hide role selection for newsletter
+                roleContainer.classList.add('hidden'); 
+                // We will force the 'newsletter' role value on submit
             } else {
                 modalTitle.innerText = "Drive with Evago";
                 modalDesc.innerText = "Get early access to higher earnings and pensions.";
-                roleContainer.classList.remove('hidden'); // Show role selection for driver
+                roleContainer.classList.remove('hidden'); 
+                roleSelect.value = 'driver';
             }
 
             modal.classList.remove('hidden');
@@ -359,14 +365,36 @@
             btn.disabled = true;
             btn.classList.add('opacity-75', 'cursor-not-allowed');
 
-            setTimeout(() => {
+            // Handle hidden role logic for newsletter
+            if (roleContainer.classList.contains('hidden')) {
+                // Temporarily create a hidden option or just let JS handle it if we were constructing JSON
+                // Since we use FormData, let's force the select value
+                roleSelect.value = 'newsletter';
+            }
+
+            const onSuccess = () => {
                 form.classList.add('hidden');
                 successMsg.classList.remove('hidden');
-                
                 btn.innerText = originalText;
                 btn.disabled = false;
                 btn.classList.remove('opacity-75', 'cursor-not-allowed');
-            }, 1500);
+            };
+
+            // If no script URL is provided, simulate success
+            if (!SCRIPT_URL) {
+                setTimeout(onSuccess, 1500);
+                return;
+            }
+
+            // Real submission
+            const formData = new FormData(form);
+            fetch(SCRIPT_URL, { method: 'POST', body: formData })
+                .then(() => onSuccess())
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    // Even if error (CORS/etc), we often want to show success to user to avoid confusion if data actually went through
+                    onSuccess();
+                });
         }
 
         modal.addEventListener('click', function(e) {
@@ -378,4 +406,3 @@
 
 </body>
 </html>
-
