@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evago | The Compliance-First DePIN Mobility Network</title>
+    <title>Evago | The Future of Intercity Mobility</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,12 +28,17 @@
                         heading: ['Montserrat', 'sans-serif'],
                     },
                     animation: {
-                        'scroll': 'scroll 30s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'flow': 'flow 2s linear infinite',
                     },
                     keyframes: {
-                        scroll: {
-                            '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(-100%)' },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        flow: {
+                            '0%': { backgroundPosition: '0 0' },
+                            '100%': { backgroundPosition: '20px 20px' },
                         }
                     }
                 }
@@ -43,102 +48,114 @@
 
     <style>
         html { scroll-behavior: smooth; }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(229, 231, 235, 0.5);
+        .gradient-text {
+            background: linear-gradient(to right, #084b96, #1ca2ed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .flow-line {
+            background: linear-gradient(90deg, #e5e7eb 50%, #1ca2ed 50%);
+            background-size: 20px 20px;
+            animation: flow 1s linear infinite;
         }
     </style>
 </head>
-<body class="font-sans text-evago-grey antialiased bg-white">
+<body class="font-sans text-evago-grey antialiased bg-slate-50">
 
-    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center gap-3">
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
                     <img class="h-10 w-auto" src="Evago logo.png" alt="Evago" onerror="this.src='https://via.placeholder.com/150x50?text=EVAGO'">
                 </div>
 
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#ecosystem" class="text-gray-700 hover:text-evago-blue font-medium transition text-sm uppercase tracking-wide">Ecosystem</a>
-                    <a href="#pillars" class="text-gray-700 hover:text-evago-blue font-medium transition text-sm uppercase tracking-wide">Strategy</a>
-                    <a href="#tech" class="text-gray-700 hover:text-evago-blue font-medium transition text-sm uppercase tracking-wide">DePIN</a>
-                    <a href="#team" class="text-gray-700 hover:text-evago-blue font-medium transition text-sm uppercase tracking-wide">Team</a>
+                    <a href="#riders" class="text-gray-700 hover:text-evago-blue font-medium transition">For Riders</a>
+                    <a href="#drivers" class="text-gray-700 hover:text-evago-blue font-medium transition">For Drivers</a>
+                    <a href="#technology" class="text-gray-700 hover:text-evago-blue font-medium transition">Technology</a>
                 </div>
 
-                <div class="hidden md:flex">
-                    <a href="mailto:invest@evago.io" class="bg-evago-blue hover:bg-blue-800 text-white px-6 py-2.5 rounded-full font-heading font-semibold shadow-lg transition transform hover:-translate-y-0.5">
-                        Access Data Room
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="mailto:invest@evago.io" class="text-xs font-bold text-gray-400 hover:text-evago-blue transition uppercase tracking-wide">
+                        Partner / Invest
+                    </a>
+                    <a href="#" class="bg-evago-cyan hover:bg-sky-400 text-white px-6 py-2.5 rounded-full font-heading font-semibold shadow-lg shadow-cyan-500/30 transition transform hover:-translate-y-0.5">
+                        Join Waitlist
                     </a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-b from-slate-50 to-white">
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 
-                <div>
-                    <div class="inline-flex items-center px-3 py-1.5 rounded-full border border-green-200 bg-green-50 text-green-800 text-xs font-bold tracking-wide mb-6">
-                        <span class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span>
-                        PILOTS COMPLETE: SINGAPORE & DA NANG (VIETNAM)
+                <div class="z-10">
+                    <div class="inline-flex items-center gap-2 mb-6">
+                        <span class="px-3 py-1 rounded-full bg-blue-50 text-evago-blue text-xs font-bold tracking-wide border border-blue-100">
+                            🚀 PILOTS COMPLETE: SINGAPORE & VIETNAM
+                        </span>
                     </div>
                     
-                    <h1 class="font-heading text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-                        Compliance-First <br>
-                        <span class="text-evago-blue">Intercity Mobility.</span>
+                    <h1 class="font-heading text-5xl lg:text-7xl font-extrabold text-gray-900 leading-tight mb-6">
+                        Travel Smart. <br>
+                        <span class="gradient-text">Secure Your Future.</span>
                     </h1>
                     
                     <p class="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
-                        We are building the <strong>Future-Proof Ecosystem</strong> for the $1.5B Malaysia-Singapore corridor. 
-                        Validated by <strong class="text-gray-900">Solana</strong> & <strong class="text-gray-900">IoTeX</strong>. Secured by the Whitewash Pension Protocol.
+                        We are building the world's first mobility network that turns road data into financial security. 
+                        <strong>Riders</strong> will enjoy safe cross-border travel. 
+                        <strong>Drivers</strong> will earn an automated pension funded by smart infrastructure.
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 mb-10">
-                        <button class="bg-evago-cyan text-white px-8 py-4 rounded-lg font-bold shadow-lg shadow-cyan-500/30 hover:bg-sky-400 transition transform hover:-translate-y-1">
-                            Invest in Seed Round ($1.5M)
+                        <button class="bg-gray-900 text-white px-8 py-4 rounded-xl font-bold shadow-xl hover:bg-black transition flex items-center justify-center gap-2">
+                            <span>Join Rider Waitlist</span>
                         </button>
-                        <a href="https://x.com/gocabs_xyz" target="_blank" class="flex items-center justify-center px-8 py-4 rounded-lg border-2 border-gray-200 text-gray-700 font-bold hover:border-evago-blue hover:text-evago-blue transition">
-                            View Live Validation
-                        </a>
+                        <button class="bg-evago-cyan text-white px-8 py-4 rounded-xl font-bold shadow-xl hover:bg-sky-400 transition flex items-center justify-center gap-2">
+                            <span>Pre-register to Drive</span>
+                        </button>
                     </div>
-
-                    <div class="flex items-center gap-4 text-xs font-bold text-gray-400 uppercase tracking-widest">
-                        <span>Built On</span>
-                        <div class="flex gap-4 grayscale opacity-70">
-                            <span class="text-gray-800 font-extrabold text-sm">SOLANA</span>
-                            <span class="text-gray-800 font-extrabold text-sm">IOTEX</span>
-                            <span class="text-gray-800 font-extrabold text-sm">PEAQ</span>
-                        </div>
-                    </div>
+                    
+                    <p class="text-xs text-gray-400 italic">* App currently in closed beta. Public launch coming soon to Malaysia & Singapore.</p>
                 </div>
 
-                <div class="relative hidden lg:block">
-                    <div class="relative h-[480px] w-full bg-gray-900 rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white">
-                        <div class="absolute inset-0 opacity-30 bg-[url('https://www.transparenttextures.com/patterns/city-fields.png')]"></div>
-                        
-                        <div class="absolute inset-0 flex flex-col items-center justify-center">
-                            <div class="absolute top-1/4 right-1/4 animate-pulse">
-                                <div class="w-4 h-4 bg-green-500 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.8)]"></div>
-                                <div class="absolute top-6 left-1/2 -translate-x-1/2 bg-black/50 text-white text-[10px] px-2 py-1 rounded backdrop-blur whitespace-nowrap">Da Nang (Pilot)</div>
-                            </div>
-                             <div class="absolute bottom-1/3 left-1/3 animate-pulse" style="animation-delay: 1s;">
-                                <div class="w-4 h-4 bg-evago-cyan rounded-full shadow-[0_0_15px_rgba(28,162,237,0.8)]"></div>
-                                <div class="absolute top-6 left-1/2 -translate-x-1/2 bg-black/50 text-white text-[10px] px-2 py-1 rounded backdrop-blur whitespace-nowrap">Singapore (Token 2049)</div>
+                <div class="relative lg:h-[600px] flex items-center justify-center">
+                    <div class="relative z-20 w-72 h-[550px] bg-gray-900 rounded-[3rem] border-8 border-gray-900 shadow-2xl animate-float">
+                        <div class="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative">
+                            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/city-fields.png')] opacity-20 bg-blue-50"></div>
+                            
+                            <div class="absolute top-4 right-4 z-30">
+                                <span class="bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase">Beta Build</span>
                             </div>
 
-                            <div class="z-10 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-xl max-w-sm text-center">
-                                <h3 class="text-white font-heading font-bold text-xl mb-1">Ecosystem Traction</h3>
-                                <p class="text-blue-200 text-sm mb-4">Recognized by Industry Leaders</p>
-                                <div class="flex flex-wrap justify-center gap-2">
-                                    <span class="px-2 py-1 bg-purple-500/20 text-purple-200 text-xs rounded border border-purple-500/30">Solana Feature</span>
-                                    <span class="px-2 py-1 bg-green-500/20 text-green-200 text-xs rounded border border-green-500/30">IoTeX Finalist</span>
-                                    <span class="px-2 py-1 bg-blue-500/20 text-blue-200 text-xs rounded border border-blue-500/30">Syndica</span>
+                            <div class="absolute top-0 w-full p-6 bg-gradient-to-b from-white to-transparent">
+                                <div class="flex justify-between items-end">
+                                    <div>
+                                        <p class="text-xs text-gray-400 font-bold uppercase">Projected Wallet</p>
+                                        <h3 class="text-3xl font-bold text-gray-900">$142.50</h3>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-[10px] text-gray-500 font-bold bg-gray-200 px-2 py-1 rounded-full">● Offline</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="absolute bottom-8 left-4 right-4">
+                                <div class="bg-white p-4 rounded-xl shadow-lg border-l-4 border-evago-cyan">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="text-xs text-gray-500 font-bold">SMART PENSION PREVIEW</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm font-bold text-gray-900">+$12.40 Pending</span>
+                                        <span class="text-[10px] text-gray-400">Via Data Rewards</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-evago-cyan/20 rounded-full blur-3xl -z-10"></div>
                 </div>
             </div>
         </div>
@@ -146,272 +163,167 @@
 
     <section id="ecosystem" class="py-12 bg-white border-y border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-center text-xs font-bold text-gray-400 uppercase tracking-widest mb-8">Strategic Partners & Recognition</p>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-80 grayscale hover:grayscale-0 transition-all duration-500">
-                <div class="text-center group">
-                    <div class="font-heading font-black text-xl text-gray-800 group-hover:text-purple-600">SOLANA</div>
-                    <div class="text-[10px] text-gray-400 mt-1">Ecosystem Feature</div>
-                </div>
-                <div class="text-center group">
-                    <div class="font-heading font-black text-xl text-gray-800 group-hover:text-green-600">IoTeX</div>
-                    <div class="text-[10px] text-gray-400 mt-1">R3al World Finalist</div>
-                </div>
-                <div class="text-center group">
-                    <div class="font-heading font-black text-xl text-gray-800 group-hover:text-evago-blue">Backstage</div>
-                    <div class="text-[10px] text-gray-400 mt-1">Global Ride-Hailing</div>
-                </div>
-                <div class="text-center group">
-                    <div class="font-heading font-black text-xl text-gray-800 group-hover:text-yellow-600">DeCharge</div>
-                    <div class="text-[10px] text-gray-400 mt-1">Infra Collaboration</div>
-                </div>
-                <div class="text-center group">
-                    <div class="font-heading font-black text-xl text-gray-800 group-hover:text-red-500">GAIN</div>
-                    <div class="text-[10px] text-gray-400 mt-1">Ventures Finalist</div>
-                </div>
-                 <div class="text-center group">
-                    <div class="font-heading font-black text-xl text-gray-800 group-hover:text-blue-500">Syndica</div>
-                    <div class="text-[10px] text-gray-400 mt-1">Ecosystem Feature</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="pillars" class="py-20 bg-slate-50 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-evago-cyan font-bold tracking-widest uppercase text-xs">Differentiation</span>
-                <h2 class="font-heading text-3xl font-bold text-gray-900 mt-2">The 4 Pillars of Evago</h2>
-                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">We don't just sell software. We validate the B2B logistics model with our own fleet and strategic partners.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="p-6 rounded-2xl bg-white border border-gray-100 hover:border-evago-cyan transition group hover:shadow-lg relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg">Global Scale</div>
-                    <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-evago-blue mb-4 text-2xl">🚗</div>
-                    <h3 class="font-heading font-bold text-lg text-gray-900 mb-2">1. Licensed Mobility</h3>
-                    <p class="text-sm text-gray-600">
-                        Point-to-point transport (KL-JB-SG). Partnered with <strong>Backstage</strong> for global ride-hailing integration.
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="md:w-1/3">
+                    <h3 class="font-heading text-xl font-bold text-gray-900">Verified Innovation 🌐</h3>
+                    <p class="text-sm text-gray-500 mt-2">
+                        Evago (formerly GoCabs) is officially mapped on <strong>The Grid</strong> by Superteam Vietnam as a leading Web3 startup.
                     </p>
-                </div>
-
-                <div class="p-6 rounded-2xl bg-white border border-gray-100 hover:border-evago-cyan transition group hover:shadow-lg">
-                    <div class="w-12 h-12 bg-cyan-50 rounded-lg flex items-center justify-center text-evago-cyan mb-4 text-2xl">📡</div>
-                    <h3 class="font-heading font-bold text-lg text-gray-900 mb-2">2. DePIN Tech</h3>
-                    <p class="text-sm text-gray-600">
-                        Monetizing empty return legs. Collaborating with <strong>DeCharge</strong> & <strong>Nubila</strong> for enhanced data & energy layers.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-2xl bg-white border border-gray-100 hover:border-evago-cyan transition group hover:shadow-lg">
-                    <div class="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center text-green-600 mb-4 text-2xl">🛡️</div>
-                    <h3 class="font-heading font-bold text-lg text-gray-900 mb-2">3. Social Impact</h3>
-                    <p class="text-sm text-gray-600">
-                        The <strong>Whitewash Protocol</strong>: Automated pension contributions and a $150/mo floor wage guarantee for drivers.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-2xl bg-white border border-gray-100 hover:border-evago-cyan transition group hover:shadow-lg">
-                    <div class="w-12 h-12 bg-purple-50 rounded-lg flex items-center justify-center text-purple-600 mb-4 text-2xl">⚖️</div>
-                    <h3 class="font-heading font-bold text-lg text-gray-900 mb-2">4. Compliance</h3>
-                    <p class="text-sm text-gray-600">
-                        <strong>Pension-as-a-Service</strong>. Fully APAD/LTA compliant to replace illegal "Kereta Sapu" operators.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="tech" class="py-20 bg-evago-blue text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <span class="text-evago-cyan font-bold tracking-widest uppercase text-sm">The Economic Engine</span>
-                    <h2 class="font-heading text-4xl font-bold mt-2 mb-6">Ride Better. Earn Smarter.</h2>
-                    <p class="text-blue-100 text-lg mb-8">
-                        Most mobility apps bleed money. Evago drivers earn from two sources simultaneously, creating a sustainable <strong>93% income boost</strong>.
-                    </p>
-                    
-                    <ul class="space-y-4">
-                        <li class="flex items-center gap-4">
-                            <div class="w-8 h-8 rounded-full bg-evago-cyan flex items-center justify-center font-bold text-white">1</div>
-                            <span class="font-medium">Drive: Licensed Passenger Trips (Fares)</span>
-                        </li>
-                        <li class="flex items-center gap-4">
-                            <div class="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center font-bold text-white">2</div>
-                            <span class="font-medium">Connect: Passive Mapping & DeCharge Infra</span>
-                        </li>
-                        <li class="flex items-center gap-4">
-                            <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center font-bold text-white">3</div>
-                            <span class="font-medium">Secure: Whitewash Pension Auto-Invest</span>
-                        </li>
-                    </ul>
+                    <a href="https://explorer.thegrid.id/?tags=id1751978609-vVCNseiiRX-cNI2b_7OgAg" target="_blank" class="inline-flex items-center mt-3 text-evago-cyan font-bold text-sm hover:underline">
+                        View Live Verification <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
                 </div>
                 
-                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl">
-                    <h3 class="font-heading font-bold text-xl mb-6">Pilot Results (GoCabs Brand)</h3>
-                    
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between text-sm mb-2">
-                                <span class="text-blue-200">Driver Retention</span>
-                                <span class="font-bold text-white">98%</span>
-                            </div>
-                            <div class="w-full bg-blue-900/50 rounded-full h-2">
-                                <div class="bg-green-400 h-2 rounded-full" style="width: 98%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between text-sm mb-2">
-                                <span class="text-blue-200">Data Packets Mapped</span>
-                                <span class="font-bold text-white">>15TB</span>
-                            </div>
-                            <div class="w-full bg-blue-900/50 rounded-full h-2">
-                                <div class="bg-evago-cyan h-2 rounded-full" style="width: 85%"></div>
-                            </div>
-                        </div>
-
-                        <div class="pt-4 border-t border-white/10">
-                            <p class="text-xs text-blue-300">
-                                "Finalist for <strong>IoTeX R3al World</strong> and <strong>GAIN Ventures x DePIN Deployer DAO</strong>."
-                            </p>
-                        </div>
+                <div class="md:w-2/3 flex flex-wrap justify-center md:justify-end gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                    <div class="flex items-center gap-2 group">
+                        <span class="font-black text-lg text-gray-800 group-hover:text-red-500">SuperteamVN</span>
+                    </div>
+                    <div class="flex items-center gap-2 group">
+                        <span class="font-black text-lg text-gray-800 group-hover:text-purple-600">SOLANA</span>
+                    </div>
+                    <div class="flex items-center gap-2 group">
+                        <span class="font-black text-lg text-gray-800 group-hover:text-green-600">IoTeX</span>
+                    </div>
+                    <div class="flex items-center gap-2 group">
+                        <span class="font-black text-lg text-gray-800 group-hover:text-blue-600">Backstage</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="team" class="py-20 bg-white">
+    <section class="py-24 bg-evago-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-heading text-3xl font-bold text-gray-900">The Execution Team</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                <div class="flex items-start space-x-4">
-                    <img src="https://ui-avatars.com/api/?name=Vipashana+Telgote&background=084b96&color=fff" class="w-16 h-16 rounded-full" alt="Vipashana">
-                    <div>
-                        <h4 class="font-bold text-gray-900">Vipashana Telgote</h4>
-                        <span class="text-xs font-bold text-evago-cyan uppercase">Founder & CEO</span>
-                        <p class="text-xs text-gray-500 mt-2">Climate-Tech Leader & Web3 Innovator. 7+ years in ReFi.</p>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div id="riders" class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-3xl mb-6">👋</div>
+                    <h3 class="font-heading text-2xl font-bold text-gray-900 mb-4">For Riders</h3>
+                    <p class="text-gray-500 mb-6">Coming Soon: Experience the safest way to cross the border.</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <span class="text-evago-cyan mr-2">✓</span>
+                            <span class="text-gray-600"><strong>Verified Fleet:</strong> No illegal "Kereta Sapu" taxis. Fully licensed & insured.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-evago-cyan mr-2">✓</span>
+                            <span class="text-gray-600"><strong>Seamless Travel:</strong> Direct point-to-point service between MY & SG.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-evago-cyan mr-2">✓</span>
+                            <span class="text-gray-600"><strong>Rewards:</strong> Earn points on every mile traveled.</span>
+                        </li>
+                    </ul>
+                    <button class="text-evago-blue font-bold hover:underline cursor-not-allowed opacity-70">App Store Link (Coming Soon)</button>
                 </div>
 
-                <div class="flex items-start space-x-4">
-                    <img src="https://ui-avatars.com/api/?name=Jan+Hanken&background=084b96&color=fff" class="w-16 h-16 rounded-full" alt="Jan">
-                    <div>
-                        <h4 class="font-bold text-gray-900">Jan Hanken</h4>
-                        <span class="text-xs font-bold text-evago-cyan uppercase">Co-Founder & COO</span>
-                        <p class="text-xs text-gray-500 mt-2">Founder of ChainsAtlas. Corp veteran at Siemens, VW, Microsoft.</p>
+                <div id="drivers" class="bg-gray-900 text-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition duration-300 border border-gray-800 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                        <img src="Evago symbol.jpg" class="w-40 h-40 rounded-full" alt="Bg">
                     </div>
-                </div>
-
-                <div class="flex items-start space-x-4">
-                    <img src="https://ui-avatars.com/api/?name=Hashim+Alkaff&background=737373&color=fff" class="w-16 h-16 rounded-full" alt="Hashim">
-                    <div>
-                        <h4 class="font-bold text-gray-900">Hashim Alkaff</h4>
-                        <span class="text-xs font-bold text-gray-400 uppercase">Mobility Advisor</span>
-                        <p class="text-xs text-gray-500 mt-2">Former Grab Country Head (Mobility & Deliveries).</p>
-                    </div>
-                </div>
-
-                <div class="flex items-start space-x-4">
-                    <img src="https://ui-avatars.com/api/?name=Mark+Koh&background=737373&color=fff" class="w-16 h-16 rounded-full" alt="Mark">
-                    <div>
-                        <h4 class="font-bold text-gray-900">Mark Koh</h4>
-                        <span class="text-xs font-bold text-gray-400 uppercase">Growth Advisor</span>
-                        <p class="text-xs text-gray-500 mt-2">Sec-Gen CEE Chamber of Commerce. Serial Founder.</p>
-                    </div>
-                </div>
-
-                 <div class="flex items-start space-x-4">
-                    <img src="https://ui-avatars.com/api/?name=Zoey+Zhang&background=737373&color=fff" class="w-16 h-16 rounded-full" alt="Zoey">
-                    <div>
-                        <h4 class="font-bold text-gray-900">Zoey Zhang</h4>
-                        <span class="text-xs font-bold text-gray-400 uppercase">Strategy Advisor</span>
-                        <p class="text-xs text-gray-500 mt-2">Ex-UN & Deloitte. Former Head of Ops at GEODNET.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-slate-50 border-t border-gray-200">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="font-heading text-3xl font-bold text-gray-900 mb-2">Seed Round: $1.5M</h2>
-            <p class="text-gray-500 mb-10">Strategic Allocation for Market Capture & Compliance</p>
-
-            <div class="bg-white p-8 rounded-2xl shadow-sm text-left">
-                <div class="space-y-6">
-                    <div>
-                        <div class="flex justify-between text-sm font-bold mb-1">
-                            <span>Tech, R&D & Carbon Registry</span>
-                            <span class="text-evago-blue">$525k (35%)</span>
-                        </div>
-                        <div class="w-full bg-gray-100 rounded-full h-2.5">
-                            <div class="bg-evago-blue h-2.5 rounded-full" style="width: 35%"></div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <div class="flex justify-between text-sm font-bold mb-1">
-                            <span>Legal & Ops ("Fleet Formalization")</span>
-                            <span class="text-evago-cyan">$375k (25%)</span>
-                        </div>
-                        <div class="w-full bg-gray-100 rounded-full h-2.5">
-                            <div class="bg-evago-cyan h-2.5 rounded-full" style="width: 25%"></div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="flex justify-between text-sm font-bold mb-1">
-                            <span>Driver Welfare & Subsidy</span>
-                            <span class="text-gray-600">$375k (25%)</span>
-                        </div>
-                        <div class="w-full bg-gray-100 rounded-full h-2.5">
-                            <div class="bg-gray-600 h-2.5 rounded-full" style="width: 25%"></div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <div class="flex justify-between text-sm font-bold mb-1">
-                            <span>Physical Infrastructure</span>
-                            <span class="text-gray-400">$225k (15%)</span>
-                        </div>
-                        <div class="w-full bg-gray-100 rounded-full h-2.5">
-                            <div class="bg-gray-400 h-2.5 rounded-full" style="width: 15%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-10 text-center">
-                    <a href="mailto:invest@evago.io" class="inline-block bg-gray-900 text-white font-bold px-10 py-4 rounded-lg hover:bg-black transition transform hover:-translate-y-1 shadow-xl">
-                        Request Term Sheet
+                    <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-3xl mb-6 relative z-10">🚗</div>
+                    <h3 class="font-heading text-2xl font-bold text-white mb-4 relative z-10">For Drivers</h3>
+                    <p class="text-gray-400 mb-6 relative z-10">Don't just drive. Build wealth automatically.</p>
+                    <ul class="space-y-4 mb-8 relative z-10">
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-2">✓</span>
+                            <span class="text-gray-300"><strong>Double Income:</strong> Fares pay your bills. Data pays your future.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-2">✓</span>
+                            <span class="text-gray-300"><strong>Automated Pension:</strong> Our backend system automatically routes a % of revenue into a secure retirement fund for you.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-2">✓</span>
+                            <span class="text-gray-300"><strong>Income Guarantee:</strong> A treasury-backed floor wage protects you on slow days.</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-block bg-evago-cyan text-white font-bold py-3 px-6 rounded-lg hover:bg-sky-400 transition relative z-10">
+                        Join Driver Waitlist
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-8 md:mb-0 flex items-center gap-3">
-                <img src="Evago symbol.jpg" class="h-8 w-8 rounded-full" alt="Evago">
-                <span class="font-heading font-bold text-xl tracking-tight">EVAGO</span>
+    <section id="technology" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-evago-cyan font-bold tracking-widest uppercase text-sm">The Invisible Backend</span>
+                <h2 class="font-heading text-3xl font-bold text-gray-900 mt-2">How It Works</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                    We use advanced backend technology (Smart Splitters) to ensure every mile you drive contributes to your long-term wealth, without you lifting a finger.
+                </p>
             </div>
-            
-            <div class="text-gray-400 text-sm text-center md:text-right">
-                <p>&copy; 2026 Evago Mobility.</p>
-                <div class="flex items-center gap-2 mt-2 justify-center md:justify-end">
-                    <a href="#" class="hover:text-evago-cyan transition">Privacy</a>
-                    <span>•</span>
-                    <a href="#" class="hover:text-evago-cyan transition">Twitter/X</a>
+
+            <div class="relative bg-slate-50 border border-gray-200 rounded-3xl p-8 lg:p-12 overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-4xl shadow-md mx-auto mb-4 border border-gray-100">🚕</div>
+                        <h4 class="font-bold text-gray-900">1. The Ride</h4>
+                        <p class="text-sm text-gray-500 mt-2">Passenger pays fare. <br>Hardware collects map data.</p>
+                    </div>
+
+                    <div class="hidden md:flex items-center justify-center text-gray-300">
+                        <div class="h-1 w-full bg-gray-200 rounded overflow-hidden">
+                            <div class="h-full w-full flow-line"></div>
+                        </div>
+                    </div>
+
+                    <div class="relative bg-white p-6 rounded-2xl shadow-xl border border-evago-blue/10 text-center transform scale-105">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-evago-blue text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">The Smart Engine</div>
+                        <div class="text-4xl mb-2">⚙️</div>
+                        <h4 class="font-bold text-evago-blue">Revenue Splitter</h4>
+                        <p class="text-xs text-gray-500 mt-2">Automatically separates earnings into:</p>
+                        <div class="mt-3 flex flex-wrap justify-center gap-2">
+                            <span class="px-2 py-1 bg-green-50 text-green-700 text-[10px] font-bold rounded">Instant Wages</span>
+                            <span class="px-2 py-1 bg-purple-50 text-purple-700 text-[10px] font-bold rounded">Pension Fund</span>
+                            <span class="px-2 py-1 bg-yellow-50 text-yellow-700 text-[10px] font-bold rounded">Safety Reserve</span>
+                        </div>
+                    </div>
+
+                    <div class="hidden md:flex items-center justify-center text-gray-300">
+                        <div class="h-1 w-full bg-gray-200 rounded overflow-hidden">
+                            <div class="h-full w-full flow-line"></div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-4xl shadow-md mx-auto mb-4 border border-gray-100">🏦</div>
+                        <h4 class="font-bold text-gray-900">3. Your Future</h4>
+                        <p class="text-sm text-gray-500 mt-2">Daily income in your wallet.<br>Pension grows in background.</p>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-white py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-8 md:mb-0 text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-3 mb-4">
+                    <img src="Evago symbol.jpg" class="h-8 w-8 rounded-full" alt="Evago">
+                    <span class="font-heading font-bold text-xl tracking-tight">EVAGO</span>
+                </div>
+                <p class="text-gray-400 text-sm">The Compliance-First Mobility Network.</p>
+                <p class="text-xs text-gray-600 mt-2">Currently in private beta. Pilots concluded in Singapore & Da Nang.</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-8 text-center md:text-right">
+                <div class="flex flex-col gap-2">
+                    <span class="text-xs font-bold text-gray-500 uppercase">Product</span>
+                    <a href="#" class="text-sm hover:text-evago-cyan transition">Rider Waitlist</a>
+                    <a href="#" class="text-sm hover:text-evago-cyan transition">Driver Waitlist</a>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <span class="text-xs font-bold text-gray-500 uppercase">Company</span>
+                    <a href="mailto:invest@evago.io" class="text-sm hover:text-evago-cyan transition">Investors</a>
+                    <a href="#" class="text-sm hover:text-evago-cyan transition">Twitter/X</a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12 text-xs text-gray-600">
+            &copy; 2026 Evago Mobility. All Rights Reserved.
         </div>
     </footer>
 
