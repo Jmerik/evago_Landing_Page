@@ -50,6 +50,23 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        /* Modal Transitions */
+        .modal {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
     </style>
 </head>
 <body class="font-sans text-evago-grey antialiased bg-slate-50">
@@ -64,7 +81,13 @@
 
                 <div class="hidden md:flex items-center gap-6">
                     <a href="#info" class="text-sm font-bold text-gray-500 hover:text-evago-blue transition uppercase tracking-wide">Get More Info</a>
-                    <a href="#drivers" class="bg-evago-cyan hover:bg-sky-400 text-white px-6 py-2.5 rounded-full font-heading font-semibold shadow-lg shadow-cyan-500/30 transition transform hover:-translate-y-0.5">Join Driver Waitlist</a>
+                    <button onclick="openModal('driver')" class="bg-evago-cyan hover:bg-sky-400 text-white px-6 py-2.5 rounded-full font-heading font-semibold shadow-lg shadow-cyan-500/30 transition transform hover:-translate-y-0.5">
+                        Join Driver Waitlist
+                    </button>
+                </div>
+                
+                <div class="md:hidden">
+                    <button onclick="openModal('general')" class="text-evago-cyan font-bold text-sm">Join Waitlist</button>
                 </div>
             </div>
         </div>
@@ -95,9 +118,9 @@
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 mb-10">
-                        <a href="#drivers" class="bg-evago-cyan text-white px-10 py-4 rounded-xl font-bold shadow-xl hover:bg-sky-400 transition flex items-center justify-center">
+                        <button onclick="openModal('driver')" class="bg-evago-cyan text-white px-10 py-4 rounded-xl font-bold shadow-xl hover:bg-sky-400 transition flex items-center justify-center">
                             Join Driver Waitlist
-                        </a>
+                        </button>
                         <a href="#info" class="bg-white border-2 border-gray-200 text-gray-700 px-10 py-4 rounded-xl font-bold hover:border-evago-blue hover:text-evago-blue transition flex items-center justify-center">
                             Get More Info
                         </a>
@@ -158,7 +181,7 @@
                             <span class="text-gray-600"><strong>Seamless Booking:</strong> Door-to-door intercity service.</span>
                         </li>
                     </ul>
-                    <span class="text-xs text-gray-400 font-bold uppercase">Launch Coming Soon</span>
+                    <button onclick="openModal('rider')" class="text-evago-blue font-bold hover:underline">Join Rider Waitlist &rarr;</button>
                 </div>
 
                 <div id="drivers" class="bg-gray-900 text-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition border border-gray-800 relative overflow-hidden">
@@ -177,9 +200,9 @@
                             <span class="text-gray-300"><strong>Stable Earnings:</strong> Treasury-backed floor wage guarantee.</span>
                         </li>
                     </ul>
-                    <a href="#" class="inline-block bg-evago-cyan text-white font-bold py-3 px-6 rounded-lg hover:bg-sky-400 transition relative z-10">
+                    <button onclick="openModal('driver')" class="inline-block bg-evago-cyan text-white font-bold py-3 px-6 rounded-lg hover:bg-sky-400 transition relative z-10">
                         Join Driver Waitlist
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -222,7 +245,7 @@
                 <p class="text-gray-400 text-sm">The Compliance-First Mobility Network.</p>
             </div>
             <div class="flex gap-10">
-                <a href="#drivers" class="text-sm hover:text-evago-cyan transition">Driver Waitlist</a>
+                <button onclick="openModal('driver')" class="text-sm hover:text-evago-cyan transition">Driver Waitlist</button>
                 <a href="mailto:invest@evago.io" class="text-sm hover:text-evago-cyan transition">Get More Info</a>
             </div>
         </div>
@@ -230,6 +253,134 @@
             &copy; 2026 Evago Mobility. All Rights Reserved.
         </div>
     </footer>
+
+    <div id="waitlist-modal" class="modal fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/50 backdrop-blur-sm">
+        <div class="modal-content bg-white w-full max-w-md mx-4 rounded-3xl shadow-2xl overflow-hidden relative">
+            
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <div class="p-8">
+                <div class="text-center mb-6">
+                    <div class="w-12 h-12 bg-evago-light rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">🚀</div>
+                    <h3 id="modal-title" class="text-2xl font-heading font-bold text-gray-900">Join the Waitlist</h3>
+                    <p class="text-gray-500 text-sm mt-2">Get early access when we launch in your city.</p>
+                </div>
+
+                <form id="waitlist-form" onsubmit="handleWaitlistSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Full Name</label>
+                        <input type="text" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-evago-cyan focus:ring-2 focus:ring-evago-cyan/20 outline-none transition" placeholder="John Doe">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Email Address</label>
+                        <input type="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-evago-cyan focus:ring-2 focus:ring-evago-cyan/20 outline-none transition" placeholder="john@example.com">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Role</label>
+                            <select id="role-select" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-evago-cyan outline-none bg-white">
+                                <option value="rider">Rider</option>
+                                <option value="driver">Driver</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Region</label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-evago-cyan outline-none bg-white">
+                                <option value="my">Malaysia</option>
+                                <option value="sg">Singapore</option>
+                                <option value="vn">Vietnam</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-evago-cyan hover:bg-sky-400 text-white font-bold py-4 rounded-xl shadow-lg shadow-cyan-500/20 transition transform hover:-translate-y-0.5">
+                        Secure My Spot
+                    </button>
+                </form>
+
+                <div id="success-message" class="hidden text-center py-8">
+                    <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">✓</div>
+                    <h4 class="text-xl font-bold text-gray-900">You're on the list!</h4>
+                    <p class="text-gray-500 text-sm mt-2">We'll notify you as soon as spots open up in your region.</p>
+                    <button onclick="closeModal()" class="mt-6 text-evago-cyan font-bold hover:underline">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('waitlist-modal');
+        const form = document.getElementById('waitlist-form');
+        const successMsg = document.getElementById('success-message');
+        const roleSelect = document.getElementById('role-select');
+        const modalTitle = document.getElementById('modal-title');
+
+        function openModal(type) {
+            // Reset state
+            form.classList.remove('hidden');
+            successMsg.classList.add('hidden');
+            form.reset();
+
+            // Set content based on type
+            if (type === 'driver') {
+                modalTitle.innerText = "Drive with Evago";
+                roleSelect.value = 'driver';
+            } else if (type === 'rider') {
+                modalTitle.innerText = "Ride with Evago";
+                roleSelect.value = 'rider';
+            } else {
+                modalTitle.innerText = "Join the Waitlist";
+                roleSelect.value = 'rider';
+            }
+
+            modal.classList.remove('hidden');
+            // Small timeout to allow CSS transition to kick in
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300); // Match CSS transition duration
+        }
+
+        function handleWaitlistSubmit(e) {
+            e.preventDefault();
+            
+            // Simulate API loading
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.innerText = "Processing...";
+            btn.disabled = true;
+            btn.classList.add('opacity-75', 'cursor-not-allowed');
+
+            setTimeout(() => {
+                // Show success
+                form.classList.add('hidden');
+                successMsg.classList.remove('hidden');
+                
+                // Reset button for next time
+                btn.innerText = originalText;
+                btn.disabled = false;
+                btn.classList.remove('opacity-75', 'cursor-not-allowed');
+            }, 1500);
+        }
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
