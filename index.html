@@ -80,14 +80,12 @@
                 </div>
 
                 <div class="hidden md:flex items-center gap-6">
-                    <a href="#info" class="text-sm font-bold text-gray-500 hover:text-evago-blue transition uppercase tracking-wide">Get More Info</a>
+                    <button onclick="openModal('newsletter')" class="text-sm font-bold text-gray-500 hover:text-evago-blue transition uppercase tracking-wide">
+                        Sign up for newsletter
+                    </button>
                     <button onclick="openModal('driver')" class="bg-evago-cyan hover:bg-sky-400 text-white px-6 py-2.5 rounded-full font-heading font-semibold shadow-lg shadow-cyan-500/30 transition transform hover:-translate-y-0.5">
                         Join Driver Waitlist
                     </button>
-                </div>
-                
-                <div class="md:hidden">
-                    <button onclick="openModal('general')" class="text-evago-cyan font-bold text-sm">Join Waitlist</button>
                 </div>
             </div>
         </div>
@@ -121,9 +119,9 @@
                         <button onclick="openModal('driver')" class="bg-evago-cyan text-white px-10 py-4 rounded-xl font-bold shadow-xl hover:bg-sky-400 transition flex items-center justify-center">
                             Join Driver Waitlist
                         </button>
-                        <a href="#info" class="bg-white border-2 border-gray-200 text-gray-700 px-10 py-4 rounded-xl font-bold hover:border-evago-blue hover:text-evago-blue transition flex items-center justify-center">
-                            Get More Info
-                        </a>
+                        <button onclick="openModal('newsletter')" class="bg-white border-2 border-gray-200 text-gray-700 px-10 py-4 rounded-xl font-bold hover:border-evago-blue hover:text-evago-blue transition flex items-center justify-center">
+                            Sign up for newsletter
+                        </button>
                     </div>
                     
                     <p class="text-xs text-gray-400 italic">Currently in private beta. Public launch coming soon.</p>
@@ -156,6 +154,9 @@
             <div class="md:w-1/2 text-center md:text-left">
                 <h3 class="font-heading text-xl font-bold text-gray-900">Mapped on The Grid 🌐</h3>
                 <p class="text-sm text-gray-500 mt-2">Validated by Superteam Vietnam as a leading tech innovator.</p>
+                <a href="https://explorer.thegrid.id/?tags=id1751978609-vVCNseiiRX-cNI2b_7OgAg" target="_blank" class="inline-flex items-center mt-3 text-evago-cyan font-bold text-sm hover:underline">
+                    View Live Verification <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
             </div>
             <div class="md:w-1/2 flex flex-wrap justify-center md:justify-end gap-10 opacity-60 grayscale hover:grayscale-0 transition-all">
                 <span class="font-black text-lg text-gray-800 uppercase">SuperteamVN</span>
@@ -181,7 +182,7 @@
                             <span class="text-gray-600"><strong>Seamless Booking:</strong> Door-to-door intercity service.</span>
                         </li>
                     </ul>
-                    <button onclick="openModal('rider')" class="text-evago-blue font-bold hover:underline">Join Rider Waitlist &rarr;</button>
+                    <span class="inline-block bg-gray-100 text-gray-500 text-xs font-bold uppercase px-4 py-2 rounded-full">Public Launch Coming Soon</span>
                 </div>
 
                 <div id="drivers" class="bg-gray-900 text-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition border border-gray-800 relative overflow-hidden">
@@ -246,7 +247,7 @@
             </div>
             <div class="flex gap-10">
                 <button onclick="openModal('driver')" class="text-sm hover:text-evago-cyan transition">Driver Waitlist</button>
-                <a href="mailto:invest@evago.io" class="text-sm hover:text-evago-cyan transition">Get More Info</a>
+                <button onclick="openModal('newsletter')" class="text-sm hover:text-evago-cyan transition">Newsletter</button>
             </div>
         </div>
         <div class="text-center mt-12 text-xs text-gray-600">
@@ -265,7 +266,7 @@
                 <div class="text-center mb-6">
                     <div class="w-12 h-12 bg-evago-light rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">🚀</div>
                     <h3 id="modal-title" class="text-2xl font-heading font-bold text-gray-900">Join the Waitlist</h3>
-                    <p class="text-gray-500 text-sm mt-2">Get early access when we launch in your city.</p>
+                    <p id="modal-desc" class="text-gray-500 text-sm mt-2">Get early access when we launch in your city.</p>
                 </div>
 
                 <form id="waitlist-form" onsubmit="handleWaitlistSubmit(event)" class="space-y-4">
@@ -279,11 +280,10 @@
                         <input type="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-evago-cyan focus:ring-2 focus:ring-evago-cyan/20 outline-none transition" placeholder="john@example.com">
                     </div>
 
-                    <div class="grid grid-cols-2 gap-4">
+                    <div id="role-container" class="grid grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Role</label>
                             <select id="role-select" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-evago-cyan outline-none bg-white">
-                                <option value="rider">Rider</option>
                                 <option value="driver">Driver</option>
                             </select>
                         </div>
@@ -299,14 +299,14 @@
                     </div>
 
                     <button type="submit" class="w-full bg-evago-cyan hover:bg-sky-400 text-white font-bold py-4 rounded-xl shadow-lg shadow-cyan-500/20 transition transform hover:-translate-y-0.5">
-                        Secure My Spot
+                        Submit
                     </button>
                 </form>
 
                 <div id="success-message" class="hidden text-center py-8">
                     <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">✓</div>
-                    <h4 class="text-xl font-bold text-gray-900">You're on the list!</h4>
-                    <p class="text-gray-500 text-sm mt-2">We'll notify you as soon as spots open up in your region.</p>
+                    <h4 class="text-xl font-bold text-gray-900">Thank You!</h4>
+                    <p class="text-gray-500 text-sm mt-2">We've received your details and will be in touch soon.</p>
                     <button onclick="closeModal()" class="mt-6 text-evago-cyan font-bold hover:underline">Close</button>
                 </div>
             </div>
@@ -317,8 +317,9 @@
         const modal = document.getElementById('waitlist-modal');
         const form = document.getElementById('waitlist-form');
         const successMsg = document.getElementById('success-message');
-        const roleSelect = document.getElementById('role-select');
+        const roleContainer = document.getElementById('role-container');
         const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
 
         function openModal(type) {
             // Reset state
@@ -326,20 +327,17 @@
             successMsg.classList.add('hidden');
             form.reset();
 
-            // Set content based on type
-            if (type === 'driver') {
-                modalTitle.innerText = "Drive with Evago";
-                roleSelect.value = 'driver';
-            } else if (type === 'rider') {
-                modalTitle.innerText = "Ride with Evago";
-                roleSelect.value = 'rider';
+            if (type === 'newsletter') {
+                modalTitle.innerText = "Stay Updated";
+                modalDesc.innerText = "Get the latest news on our launch and features.";
+                roleContainer.classList.add('hidden'); // Hide role selection for newsletter
             } else {
-                modalTitle.innerText = "Join the Waitlist";
-                roleSelect.value = 'rider';
+                modalTitle.innerText = "Drive with Evago";
+                modalDesc.innerText = "Get early access to higher earnings and pensions.";
+                roleContainer.classList.remove('hidden'); // Show role selection for driver
             }
 
             modal.classList.remove('hidden');
-            // Small timeout to allow CSS transition to kick in
             setTimeout(() => {
                 modal.classList.add('active');
             }, 10);
@@ -349,13 +347,12 @@
             modal.classList.remove('active');
             setTimeout(() => {
                 modal.classList.add('hidden');
-            }, 300); // Match CSS transition duration
+            }, 300); 
         }
 
         function handleWaitlistSubmit(e) {
             e.preventDefault();
             
-            // Simulate API loading
             const btn = form.querySelector('button[type="submit"]');
             const originalText = btn.innerText;
             btn.innerText = "Processing...";
@@ -363,18 +360,15 @@
             btn.classList.add('opacity-75', 'cursor-not-allowed');
 
             setTimeout(() => {
-                // Show success
                 form.classList.add('hidden');
                 successMsg.classList.remove('hidden');
                 
-                // Reset button for next time
                 btn.innerText = originalText;
                 btn.disabled = false;
                 btn.classList.remove('opacity-75', 'cursor-not-allowed');
             }, 1500);
         }
 
-        // Close modal when clicking outside
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
                 closeModal();
